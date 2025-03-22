@@ -75,22 +75,11 @@
     </style>
     <script>
         const games = [
-            { name: "Game 1", link: "game1.html", icon: "🎮" },
-            { name: "Game 2", link: "game2.html", icon: "🎮" },
-            { name: "Game 3", link: "game3.html", icon: "🎮" },
-            { name: "Game 4", link: "game4.html", icon: "🎮" },
-            { name: "Game 5", link: "game5.html", icon: "🎮" },
-            { name: "Game 6", link: "game6.html", icon: "🎮" },
-            { name: "Game 7", link: "game7.html", icon: "🎮" },
-            { name: "Game 8", link: "game8.html", icon: "🎮" },
-            { name: "Game 9", link: "game9.html", icon: "🎮" },
-            { name: "Game 10", link: "game10.html", icon: "🎮" },
-            { name: "Game 11", link: "game11.html", icon: "🎮" },
-            { name: "Game 12", link: "game12.html", icon: "🎮" },
-            { name: "Game 13", link: "game13.html", icon: "🎮" },
-            { name: "Game 14", link: "game14.html", icon: "🎮" },
-            { name: "Game 15", link: "game15.html", icon: "🎮" },
-            { name: "Game 16", link: "game16.html", icon: "🎮" }
+            ...Array(80).fill().map((_, i) => ({
+                name: `Game ${i + 1}`,
+                link: `game${i + 1}.html`,
+                icon: "🎮"
+            }))
         ];
 
         function generateGameIcons() {
@@ -99,7 +88,11 @@
             let row;
             games.forEach((game, index) => {
                 if (index % 8 === 0) {
-                    if (index !== 0) container.appendChild(document.createElement("div")).className = "divider";
+                    if (index !== 0) {
+                        const divider = document.createElement("div");
+                        divider.className = "divider";
+                        container.appendChild(divider);
+                    }
                     row = document.createElement("div");
                     row.className = "game-row";
                     container.appendChild(row);
