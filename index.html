@@ -43,6 +43,7 @@
             background-color: white;
             margin: 20px auto;
             width: 80%;
+            display: none;
         }
         .game-row {
             display: flex;
@@ -75,14 +76,29 @@
     <script>
         function searchGames() {
             let input = document.getElementById('search-bar').value.toLowerCase();
-            let games = document.getElementsByClassName('game-item');
+            let rows = document.getElementsByClassName('game-row');
+            let dividers = document.getElementsByClassName('divider');
             
-            for (let i = 0; i < games.length; i++) {
-                let gameName = games[i].getElementsByClassName('game-name')[0].innerText.toLowerCase();
-                if (gameName.includes(input)) {
-                    games[i].style.display = 'inline-block';
-                } else {
-                    games[i].style.display = 'none';
+            for (let i = 0; i < rows.length; i++) {
+                let games = rows[i].getElementsByClassName('game-item');
+                let visibleCount = 0;
+                
+                for (let j = 0; j < games.length; j++) {
+                    let gameName = games[j].getElementsByClassName('game-name')[0].innerText.toLowerCase();
+                    if (gameName.includes(input)) {
+                        games[j].style.display = 'inline-block';
+                        visibleCount++;
+                    } else {
+                        games[j].style.display = 'none';
+                    }
+                }
+                
+                // Show or hide the row based on visible games
+                rows[i].style.display = visibleCount > 0 ? 'flex' : 'none';
+                
+                // Show or hide the dividers accordingly
+                if (i < dividers.length) {
+                    dividers[i].style.display = (visibleCount > 0 && i > 0) ? 'block' : 'none';
                 }
             }
         }
