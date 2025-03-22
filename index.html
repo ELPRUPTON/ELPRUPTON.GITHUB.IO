@@ -75,18 +75,22 @@
     </style>
     <script>
         const games = [
-            ...Array(80).fill().map((_, i) => ({
-                name: `Game ${i + 1}`,
-                link: `game${i + 1}.html`,
-                icon: "🎮"
-            }))
+            { name: "Game 1", link: "game1.html", icon: "🎮" },
+            { name: "Game 2", link: "game2.html", icon: "🎮" },
+            { name: "Game 3", link: "game3.html", icon: "🎮" },
+            { name: "Game 4", link: "game4.html", icon: "🎮" },
+            { name: "Game 5", link: "game5.html", icon: "🎮" },
+            { name: "Game 6", link: "game6.html", icon: "🎮" },
+            { name: "Game 7", link: "game7.html", icon: "🎮" },
+            { name: "Game 8", link: "game8.html", icon: "🎮" },
+            ...Array(72).fill().map((_, i) => ({ name: `Game ${i + 9}`, link: `game${i + 9}.html`, icon: "🎮" }))
         ];
 
-        function generateGameIcons() {
+        function generateGameIcons(filteredGames = games) {
             const container = document.querySelector(".game-container");
             container.innerHTML = "";
             let row;
-            games.forEach((game, index) => {
+            filteredGames.forEach((game, index) => {
                 if (index % 8 === 0) {
                     if (index !== 0) {
                         const divider = document.createElement("div");
@@ -107,19 +111,11 @@
         
         function searchGames() {
             let input = document.getElementById('search-bar').value.toLowerCase();
-            document.querySelectorAll('.game-item').forEach(item => {
-                let gameName = item.querySelector('.game-name').innerText.toLowerCase();
-                item.style.display = gameName.includes(input) ? 'inline-block' : 'none';
-            });
-            document.querySelectorAll('.game-row').forEach(row => {
-                row.style.display = [...row.children].some(item => item.style.display !== 'none') ? 'flex' : 'none';
-            });
-            document.querySelectorAll('.divider').forEach(div => {
-                div.style.display = div.nextElementSibling && div.nextElementSibling.style.display !== 'none' ? 'block' : 'none';
-            });
+            let filteredGames = games.filter(game => game.name.toLowerCase().includes(input));
+            generateGameIcons(filteredGames);
         }
         
-        window.onload = generateGameIcons;
+        window.onload = () => generateGameIcons();
     </script>
 </head>
 <body>
