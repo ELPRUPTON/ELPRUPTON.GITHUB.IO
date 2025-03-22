@@ -55,6 +55,7 @@
         .game-item {
             text-align: center;
             display: inline-block;
+            cursor: pointer;
         }
         .game-icon {
             width: 100px;
@@ -65,7 +66,6 @@
             justify-content: center;
             border-radius: 10px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-            cursor: pointer;
         }
         .game-name {
             margin-top: 5px;
@@ -74,63 +74,64 @@
         }
     </style>
     <script>
+        const games = [
+            { name: "Game 1", link: "game1.html", icon: "🎮" },
+            { name: "Game 2", link: "game2.html", icon: "🎮" },
+            { name: "Game 3", link: "game3.html", icon: "🎮" },
+            { name: "Game 4", link: "game4.html", icon: "🎮" },
+            { name: "Game 5", link: "game5.html", icon: "🎮" },
+            { name: "Game 6", link: "game6.html", icon: "🎮" },
+            { name: "Game 7", link: "game7.html", icon: "🎮" },
+            { name: "Game 8", link: "game8.html", icon: "🎮" },
+            { name: "Game 9", link: "game9.html", icon: "🎮" },
+            { name: "Game 10", link: "game10.html", icon: "🎮" },
+            { name: "Game 11", link: "game11.html", icon: "🎮" },
+            { name: "Game 12", link: "game12.html", icon: "🎮" },
+            { name: "Game 13", link: "game13.html", icon: "🎮" },
+            { name: "Game 14", link: "game14.html", icon: "🎮" },
+            { name: "Game 15", link: "game15.html", icon: "🎮" },
+            { name: "Game 16", link: "game16.html", icon: "🎮" }
+        ];
+
+        function generateGameIcons() {
+            const container = document.querySelector(".game-container");
+            container.innerHTML = "";
+            let row;
+            games.forEach((game, index) => {
+                if (index % 8 === 0) {
+                    if (index !== 0) container.appendChild(document.createElement("div")).className = "divider";
+                    row = document.createElement("div");
+                    row.className = "game-row";
+                    container.appendChild(row);
+                }
+                const gameItem = document.createElement("div");
+                gameItem.className = "game-item";
+                gameItem.onclick = () => window.location.href = game.link;
+                gameItem.innerHTML = `<div class='game-icon'>${game.icon}</div><div class='game-name'>${game.name}</div>`;
+                row.appendChild(gameItem);
+            });
+        }
+        
         function searchGames() {
             let input = document.getElementById('search-bar').value.toLowerCase();
-            let rows = document.getElementsByClassName('game-row');
-            let dividers = document.getElementsByClassName('divider');
-            
-            for (let i = 0; i < rows.length; i++) {
-                let games = rows[i].getElementsByClassName('game-item');
-                let visibleCount = 0;
-                
-                for (let j = 0; j < games.length; j++) {
-                    let gameName = games[j].getElementsByClassName('game-name')[0].innerText.toLowerCase();
-                    if (gameName.includes(input)) {
-                        games[j].style.display = 'inline-block';
-                        visibleCount++;
-                    } else {
-                        games[j].style.display = 'none';
-                    }
-                }
-                
-                // Show or hide the row based on visible games
-                rows[i].style.display = visibleCount > 0 ? 'flex' : 'none';
-                
-                // Show or hide the dividers accordingly
-                if (i < dividers.length) {
-                    dividers[i].style.display = (visibleCount > 0 && i > 0) ? 'block' : 'none';
-                }
-            }
+            document.querySelectorAll('.game-item').forEach(item => {
+                let gameName = item.querySelector('.game-name').innerText.toLowerCase();
+                item.style.display = gameName.includes(input) ? 'inline-block' : 'none';
+            });
+            document.querySelectorAll('.game-row').forEach(row => {
+                row.style.display = [...row.children].some(item => item.style.display !== 'none') ? 'flex' : 'none';
+            });
+            document.querySelectorAll('.divider').forEach(div => {
+                div.style.display = div.nextElementSibling && div.nextElementSibling.style.display !== 'none' ? 'block' : 'none';
+            });
         }
+        
+        window.onload = generateGameIcons;
     </script>
 </head>
 <body>
     <a href="https://elprupton.github.io/" class="home-link">HOME</a>
     <input type="text" id="search-bar" class="search-bar" placeholder="SEARCH" onkeyup="searchGames()">
-    <div class="game-container">
-        <div class="divider"></div>
-        <div class="game-row">
-            <div class="game-item" onclick="window.location.href='game1.html'"><div class="game-icon">🎮</div><div class="game-name">Game 1</div></div>
-            <div class="game-item" onclick="window.location.href='game2.html'"><div class="game-icon">🎮</div><div class="game-name">Game 2</div></div>
-            <div class="game-item" onclick="window.location.href='game3.html'"><div class="game-icon">🎮</div><div class="game-name">Game 3</div></div>
-            <div class="game-item" onclick="window.location.href='game4.html'"><div class="game-icon">🎮</div><div class="game-name">Game 4</div></div>
-            <div class="game-item" onclick="window.location.href='game5.html'"><div class="game-icon">🎮</div><div class="game-name">Game 5</div></div>
-            <div class="game-item" onclick="window.location.href='game6.html'"><div class="game-icon">🎮</div><div class="game-name">Game 6</div></div>
-            <div class="game-item" onclick="window.location.href='game7.html'"><div class="game-icon">🎮</div><div class="game-name">Game 7</div></div>
-            <div class="game-item" onclick="window.location.href='game8.html'"><div class="game-icon">🎮</div><div class="game-name">Game 8</div></div>
-        </div>
-        <div class="divider"></div>
-        <div class="game-row">
-            <div class="game-item" onclick="window.location.href='game9.html'"><div class="game-icon">🎮</div><div class="game-name">Game 9</div></div>
-            <div class="game-item" onclick="window.location.href='game10.html'"><div class="game-icon">🎮</div><div class="game-name">Game 10</div></div>
-            <div class="game-item" onclick="window.location.href='game11.html'"><div class="game-icon">🎮</div><div class="game-name">Game 11</div></div>
-            <div class="game-item" onclick="window.location.href='game12.html'"><div class="game-icon">🎮</div><div class="game-name">Game 12</div></div>
-            <div class="game-item" onclick="window.location.href='game13.html'"><div class="game-icon">🎮</div><div class="game-name">Game 13</div></div>
-            <div class="game-item" onclick="window.location.href='game14.html'"><div class="game-icon">🎮</div><div class="game-name">Game 14</div></div>
-            <div class="game-item" onclick="window.location.href='game15.html'"><div class="game-icon">🎮</div><div class="game-name">Game 15</div></div>
-            <div class="game-item" onclick="window.location.href='game16.html'"><div class="game-icon">🎮</div><div class="game-name">Game 16</div></div>
-        </div>
-        <div class="divider"></div>
-    </div>
+    <div class="game-container"></div>
 </body>
 </html>
