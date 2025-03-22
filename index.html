@@ -6,8 +6,8 @@
     <title>My Game Hub</title>
     <style>
         body {
-            background-color: purple;
-            color: black;
+            background-color: #707070;
+            color: white;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
@@ -23,12 +23,25 @@
             text-align: center;
             background: white;
             padding: 10px;
-            border-radius: 10px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .game-slot img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+        .game-name {
+            margin-top: 10px;
+            width: 100%;
+            background: white;
+            color: black;
+            padding: 5px 0;
             border-radius: 10px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -39,19 +52,19 @@
             <a href="https://example.com/game1" target="_blank">
                 <img src="game1-icon.png" alt="Game 1">
             </a>
-            <p>Game 1</p>
+            <div class="game-name">Game 1</div>
         </div>
         <div class="game-slot">
             <a href="https://example.com/game2" target="_blank">
                 <img src="game2-icon.png" alt="Game 2">
             </a>
-            <p>Game 2</p>
+            <div class="game-name">Game 2</div>
         </div>
         <div class="game-slot">
             <a href="https://example.com/game3" target="_blank">
                 <img src="game3-icon.png" alt="Game 3">
             </a>
-            <p>Game 3</p>
+            <div class="game-name">Game 3</div>
         </div>
     </div>
 </body>
