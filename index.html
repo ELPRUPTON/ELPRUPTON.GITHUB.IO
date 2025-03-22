@@ -3,22 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World Page</title>
+    <title>My Game Hub</title>
     <style>
         body {
             background-color: purple;
             color: black;
             font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
+            margin: 0;
+            padding: 20px;
+            overflow-y: scroll;
         }
-        .small-text {
-            font-size: 18px;
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .game-slot {
+            width: 150px;
+            text-align: center;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .game-slot img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Hello World</h1>
-    <p class="small-text">Sooooooo whatcha doin</p>
+    <h1>Welcome to My Game Hub</h1>
+    <div class="game-container">
+        <div class="game-slot">
+            <a href="https://example.com/game1" target="_blank">
+                <img src="game1-icon.png" alt="Game 1">
+            </a>
+            <p>Game 1</p>
+        </div>
+        <div class="game-slot">
+            <a href="https://example.com/game2" target="_blank">
+                <img src="game2-icon.png" alt="Game 2">
+            </a>
+            <p>Game 2</p>
+        </div>
+        <div class="game-slot">
+            <a href="https://example.com/game3" target="_blank">
+                <img src="game3-icon.png" alt="Game 3">
+            </a>
+            <p>Game 3</p>
+        </div>
+    </div>
 </body>
 </html>
