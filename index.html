@@ -53,6 +53,7 @@
         }
         .game-item {
             text-align: center;
+            display: inline-block;
         }
         .game-icon {
             width: 100px;
@@ -71,10 +72,25 @@
             font-size: 14px;
         }
     </style>
+    <script>
+        function searchGames() {
+            let input = document.getElementById('search-bar').value.toLowerCase();
+            let games = document.getElementsByClassName('game-item');
+            
+            for (let i = 0; i < games.length; i++) {
+                let gameName = games[i].getElementsByClassName('game-name')[0].innerText.toLowerCase();
+                if (gameName.includes(input)) {
+                    games[i].style.display = 'inline-block';
+                } else {
+                    games[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <a href="https://elprupton.github.io/" class="home-link">HOME</a>
-    <input type="text" class="search-bar" placeholder="SEARCH BAR">
+    <input type="text" id="search-bar" class="search-bar" placeholder="SEARCH" onkeyup="searchGames()">
     <div class="game-container">
         <div class="divider"></div>
         <div class="game-row">
