@@ -71,10 +71,10 @@
             { name: "Game 2", icon: "game2.png", link: "#" },
             // Add up to 64 games
         ];
-        function generateGames() {
+        function generateGames(filteredGames = games) {
             let gamesList = document.getElementById("games-list");
             gamesList.innerHTML = "";
-            games.forEach((game, index) => {
+            filteredGames.forEach((game, index) => {
                 if (index % 8 === 0 && index !== 0) {
                     let divider = document.createElement("div");
                     divider.className = "divider";
@@ -101,10 +101,12 @@
         }
         function filterGames() {
             let query = document.getElementById("search-bar").value.toLowerCase();
+            if (query === "") {
+                generateGames(games);
+                return;
+            }
             let filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
-            games.length = 0;
-            games.push(...filteredGames);
-            generateGames();
+            generateGames(filteredGames);
         }
         generateGames();
     </script>
