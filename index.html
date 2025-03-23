@@ -3,196 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages</title>
+    <title>ELPRUPTON</title>
     <style>
         body {
             background-color: #707070;
-            margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
+            text-align: center;
         }
-        .home-link {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 26px;
+        h1 {
+            font-size: 30px;
             font-weight: bold;
-            color: red;
-            text-decoration: none;
-            text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-        }
-        .search-bar {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            padding: 10px;
-            border-radius: 20px;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            text-align: center;
-        }
-        .game-container {
-            margin-top: 100px;
-            text-align: center;
-        }
-        .divider {
-            height: 2px;
-            background-color: white;
-            margin: 20px auto;
-            width: 80%;
-            display: none;
-        }
-        .game-row {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-        .game-item {
-            text-align: center;
-            display: inline-block;
+            color: black;
+            -webkit-text-stroke: 1px white;
             cursor: pointer;
         }
-        .game-icon {
+        #search-bar {
+            width: 300px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 16px;
+        }
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .game-slot {
             width: 100px;
             height: 100px;
             background-color: white;
+            border-radius: 10px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
         }
         .game-name {
             margin-top: 5px;
-            color: white;
+            padding: 5px;
+            background-color: lightgray;
+            border-radius: 5px;
+            width: 90px;
+            text-align: center;
             font-size: 14px;
         }
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            margin: 10px 0;
+        }
     </style>
-    <script>
-        const games = [
-  { "name": "Game1", "link": "game1.html", "icon": "🎮" },
-  { "name": "Game2", "link": "game2.html", "icon": "🎮" },
-  { "name": "Game3", "link": "game3.html", "icon": "🎮" },
-  { "name": "Game4", "link": "game4.html", "icon": "🎮" },
-  { "name": "Game5", "link": "game5.html", "icon": "🎮" },
-  { "name": "Game6", "link": "game6.html", "icon": "🎮" },
-  { "name": "Game7", "link": "game7.html", "icon": "🎮" },
-  { "name": "Game8", "link": "game8.html", "icon": "🎮" },
-  { "name": "Game9", "link": "game9.html", "icon": "🎮" },
-  { "name": "Game10", "link": "game10.html", "icon": "🎮" },
-  { "name": "Game11", "link": "game11.html", "icon": "🎮" },
-  { "name": "Game12", "link": "game12.html", "icon": "🎮" },
-  { "name": "Game13", "link": "game13.html", "icon": "🎮" },
-  { "name": "Game14", "link": "game14.html", "icon": "🎮" },
-  { "name": "Game15", "link": "game15.html", "icon": "🎮" },
-  { "name": "Game16", "link": "game16.html", "icon": "🎮" },
-  { "name": "Game17", "link": "game17.html", "icon": "🎮" },
-  { "name": "Game18", "link": "game18.html", "icon": "🎮" },
-  { "name": "Game19", "link": "game19.html", "icon": "🎮" },
-  { "name": "Game20", "link": "game20.html", "icon": "🎮" },
-  { "name": "Game21", "link": "game21.html", "icon": "🎮" },
-  { "name": "Game22", "link": "game22.html", "icon": "🎮" },
-  { "name": "Game23", "link": "game23.html", "icon": "🎮" },
-  { "name": "Game24", "link": "game24.html", "icon": "🎮" },
-  { "name": "Game25", "link": "game25.html", "icon": "🎮" },
-  { "name": "Game26", "link": "game26.html", "icon": "🎮" },
-  { "name": "Game27", "link": "game27.html", "icon": "🎮" },
-  { "name": "Game28", "link": "game28.html", "icon": "🎮" },
-  { "name": "Game29", "link": "game29.html", "icon": "🎮" },
-  { "name": "Game30", "link": "game30.html", "icon": "🎮" },
-  { "name": "Game31", "link": "game31.html", "icon": "🎮" },
-  { "name": "Game32", "link": "game32.html", "icon": "🎮" },
-  { "name": "Game33", "link": "game33.html", "icon": "🎮" },
-  { "name": "Game34", "link": "game34.html", "icon": "🎮" },
-  { "name": "Game35", "link": "game35.html", "icon": "🎮" },
-  { "name": "Game36", "link": "game36.html", "icon": "🎮" },
-  { "name": "Game37", "link": "game37.html", "icon": "🎮" },
-  { "name": "Game38", "link": "game38.html", "icon": "🎮" },
-  { "name": "Game39", "link": "game39.html", "icon": "🎮" },
-  { "name": "Game40", "link": "game40.html", "icon": "🎮" },
-  { "name": "Game41", "link": "game41.html", "icon": "🎮" },
-  { "name": "Game42", "link": "game42.html", "icon": "🎮" },
-  { "name": "Game43", "link": "game43.html", "icon": "🎮" },
-  { "name": "Game44", "link": "game44.html", "icon": "🎮" },
-  { "name": "Game45", "link": "game45.html", "icon": "🎮" },
-  { "name": "Game46", "link": "game46.html", "icon": "🎮" },
-  { "name": "Game47", "link": "game47.html", "icon": "🎮" },
-  { "name": "Game48", "link": "game48.html", "icon": "🎮" },
-  { "name": "Game49", "link": "game49.html", "icon": "🎮" },
-  { "name": "Game50", "link": "game50.html", "icon": "🎮" },
-  { "name": "Game51", "link": "game51.html", "icon": "🎮" },
-  { "name": "Game52", "link": "game52.html", "icon": "🎮" },
-  { "name": "Game53", "link": "game53.html", "icon": "🎮" },
-  { "name": "Game54", "link": "game54.html", "icon": "🎮" },
-  { "name": "Game55", "link": "game55.html", "icon": "🎮" },
-  { "name": "Game56", "link": "game56.html", "icon": "🎮" },
-  { "name": "Game57", "link": "game57.html", "icon": "🎮" },
-  { "name": "Game58", "link": "game58.html", "icon": "🎮" },
-  { "name": "Game59", "link": "game59.html", "icon": "🎮" },
-  { "name": "Game60", "link": "game60.html", "icon": "🎮" },
-  { "name": "Game61", "link": "game61.html", "icon": "🎮" },
-  { "name": "Game62", "link": "game62.html", "icon": "🎮" },
-  { "name": "Game63", "link": "game63.html", "icon": "🎮" },
-  { "name": "Game64", "link": "game64.html", "icon": "🎮" },
-  { "name": "Game65", "link": "game65.html", "icon": "🎮" },
-  { "name": "Game66", "link": "game66.html", "icon": "🎮" },
-  { "name": "Game67", "link": "game67.html", "icon": "🎮" },
-  { "name": "Game68", "link": "game68.html", "icon": "🎮" },
-  { "name": "Game69", "link": "game69.html", "icon": "🎮" },
-  { "name": "Game70", "link": "game70.html", "icon": "🎮" },
-  { "name": "Game71", "link": "game71.html", "icon": "🎮" },
-  { "name": "Game72", "link": "game72.html", "icon": "🎮" },
-  { "name": "Game73", "link": "game73.html", "icon": "🎮" },
-  { "name": "Game74", "link": "game74.html", "icon": "🎮" },
-  { "name": "Game75", "link": "game75.html", "icon": "🎮" },
-  { "name": "Game76", "link": "game76.html", "icon": "🎮" },
-  { "name": "Game77", "link": "game77.html", "icon": "🎮" },
-  { "name": "Game78", "link": "game78.html", "icon": "🎮" },
-  { "name": "Game79", "link": "game79.html", "icon": "🎮" },
-  { "name": "Game80", "link": "game80.html", "icon": "🎮" }
-];
-
-
-        function generateGameIcons(filteredGames = games) {
-            const container = document.querySelector(".game-container");
-            container.innerHTML = "";
-            let row;
-            filteredGames.forEach((game, index) => {
-                if (index % 8 === 0) {
-                    if (index !== 0) {
-                        const divider = document.createElement("div");
-                        divider.className = "divider";
-                        container.appendChild(divider);
-                    }
-                    row = document.createElement("div");
-                    row.className = "game-row";
-                    container.appendChild(row);
-                }
-                const gameItem = document.createElement("div");
-                gameItem.className = "game-item";
-                gameItem.onclick = () => window.location.href = game.link;
-                gameItem.innerHTML = `<div class='game-icon'>${game.icon}</div><div class='game-name'>${game.name}</div>`;
-                row.appendChild(gameItem);
-            });
-        }
-        
-        function searchGames() {
-            let input = document.getElementById('search-bar').value.toLowerCase();
-            let filteredGames = games.filter(game => game.name.toLowerCase().includes(input));
-            generateGameIcons(filteredGames);
-        }
-        
-        window.onload = () => generateGameIcons();
-    </script>
 </head>
 <body>
-    <a href="https://elprupton.github.io/" class="home-link">HOME</a>
-    <input type="text" id="search-bar" class="search-bar" placeholder="SEARCH" onkeyup="searchGames()">
-    <div class="game-container"></div>
+    <h1 onclick="location.href='https://elprupton.github.io/';">ELPRUPTON</h1>
+    <input type="text" id="search-bar" placeholder="SEARCH" onkeyup="filterGames()">
+    <div id="games-list" class="game-container"></div>
+    <script>
+        const games = [
+            // Add games in this format
+            { name: "Game 1", icon: "game1.png", link: "#" },
+            { name: "Game 2", icon: "game2.png", link: "#" },
+            // Add up to 64 games
+        ];
+        function generateGames() {
+            let gamesList = document.getElementById("games-list");
+            gamesList.innerHTML = "";
+            games.forEach((game, index) => {
+                if (index % 8 === 0 && index !== 0) {
+                    let divider = document.createElement("div");
+                    divider.className = "divider";
+                    gamesList.appendChild(divider);
+                }
+                let gameSlot = document.createElement("div");
+                gameSlot.className = "game-slot";
+                gameSlot.onclick = () => window.location.href = game.link;
+                
+                let gameImg = document.createElement("img");
+                gameImg.src = game.icon;
+                gameImg.width = 80;
+                gameImg.height = 80;
+                gameImg.style.borderRadius = "10px";
+                
+                let gameName = document.createElement("div");
+                gameName.className = "game-name";
+                gameName.innerText = game.name;
+                
+                gameSlot.appendChild(gameImg);
+                gameSlot.appendChild(gameName);
+                gamesList.appendChild(gameSlot);
+            });
+        }
+        function filterGames() {
+            let query = document.getElementById("search-bar").value.toLowerCase();
+            let filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
+            games.length = 0;
+            games.push(...filteredGames);
+            generateGames();
+        }
+        generateGames();
+    </script>
 </body>
 </html>
