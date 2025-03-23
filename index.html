@@ -31,6 +31,9 @@
             justify-content: center;
             gap: 10px;
             margin-top: 20px;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .game-slot {
             width: 100px;
@@ -53,10 +56,10 @@
             font-size: 14px;
         }
         .divider {
-            width: 100%;
+            width: 820px;
             height: 2px;
             background-color: white;
-            margin: 10px 0;
+            margin: 10px auto;
         }
     </style>
 </head>
@@ -68,70 +71,7 @@
         const games = [
             // Add games in this format
             { name: "Game 1", icon: "game1.png", link: "#" },
-{ name: "Game 2", icon: "game2.png", link: "#" },
-{ name: "Game 3", icon: "game3.png", link: "#" },
-{ name: "Game 4", icon: "game4.png", link: "#" },
-{ name: "Game 5", icon: "game5.png", link: "#" },
-{ name: "Game 6", icon: "game6.png", link: "#" },
-{ name: "Game 7", icon: "game7.png", link: "#" },
-{ name: "Game 8", icon: "game8.png", link: "#" },
-{ name: "Game 9", icon: "game9.png", link: "#" },
-{ name: "Game 10", icon: "game10.png", link: "#" },
-{ name: "Game 11", icon: "game11.png", link: "#" },
-{ name: "Game 12", icon: "game12.png", link: "#" },
-{ name: "Game 13", icon: "game13.png", link: "#" },
-{ name: "Game 14", icon: "game14.png", link: "#" },
-{ name: "Game 15", icon: "game15.png", link: "#" },
-{ name: "Game 16", icon: "game16.png", link: "#" },
-{ name: "Game 17", icon: "game17.png", link: "#" },
-{ name: "Game 18", icon: "game18.png", link: "#" },
-{ name: "Game 19", icon: "game19.png", link: "#" },
-{ name: "Game 20", icon: "game20.png", link: "#" },
-{ name: "Game 21", icon: "game21.png", link: "#" },
-{ name: "Game 22", icon: "game22.png", link: "#" },
-{ name: "Game 23", icon: "game23.png", link: "#" },
-{ name: "Game 24", icon: "game24.png", link: "#" },
-{ name: "Game 25", icon: "game25.png", link: "#" },
-{ name: "Game 26", icon: "game26.png", link: "#" },
-{ name: "Game 27", icon: "game27.png", link: "#" },
-{ name: "Game 28", icon: "game28.png", link: "#" },
-{ name: "Game 29", icon: "game29.png", link: "#" },
-{ name: "Game 30", icon: "game30.png", link: "#" },
-{ name: "Game 31", icon: "game31.png", link: "#" },
-{ name: "Game 32", icon: "game32.png", link: "#" },
-{ name: "Game 33", icon: "game33.png", link: "#" },
-{ name: "Game 34", icon: "game34.png", link: "#" },
-{ name: "Game 35", icon: "game35.png", link: "#" },
-{ name: "Game 36", icon: "game36.png", link: "#" },
-{ name: "Game 37", icon: "game37.png", link: "#" },
-{ name: "Game 38", icon: "game38.png", link: "#" },
-{ name: "Game 39", icon: "game39.png", link: "#" },
-{ name: "Game 40", icon: "game40.png", link: "#" },
-{ name: "Game 41", icon: "game41.png", link: "#" },
-{ name: "Game 42", icon: "game42.png", link: "#" },
-{ name: "Game 43", icon: "game43.png", link: "#" },
-{ name: "Game 44", icon: "game44.png", link: "#" },
-{ name: "Game 45", icon: "game45.png", link: "#" },
-{ name: "Game 46", icon: "game46.png", link: "#" },
-{ name: "Game 47", icon: "game47.png", link: "#" },
-{ name: "Game 48", icon: "game48.png", link: "#" },
-{ name: "Game 49", icon: "game49.png", link: "#" },
-{ name: "Game 50", icon: "game50.png", link: "#" },
-{ name: "Game 51", icon: "game51.png", link: "#" },
-{ name: "Game 52", icon: "game52.png", link: "#" },
-{ name: "Game 53", icon: "game53.png", link: "#" },
-{ name: "Game 54", icon: "game54.png", link: "#" },
-{ name: "Game 55", icon: "game55.png", link: "#" },
-{ name: "Game 56", icon: "game56.png", link: "#" },
-{ name: "Game 57", icon: "game57.png", link: "#" },
-{ name: "Game 58", icon: "game58.png", link: "#" },
-{ name: "Game 59", icon: "game59.png", link: "#" },
-{ name: "Game 60", icon: "game60.png", link: "#" },
-{ name: "Game 61", icon: "game61.png", link: "#" },
-{ name: "Game 62", icon: "game62.png", link: "#" },
-{ name: "Game 63", icon: "game63.png", link: "#" },
-{ name: "Game 64", icon: "game64.png", link: "#" },
-
+            { name: "Game 2", icon: "game2.png", link: "#" },
             // Add up to 64 games
         ];
         function generateGames(filteredGames = games) {
